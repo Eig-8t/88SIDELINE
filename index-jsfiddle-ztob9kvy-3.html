@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create a website for athletes with sign-up form and services</title>
+
+  <style>
+    /* Tablet and Up */
+@media (min-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .services-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .signup-section form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  form input {
+    width: 45%;
+  }
+
+  form button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .services-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header {
+    padding: 3rem 2rem;
+  }
+
+  .signup-section,
+  .services-section {
+    padding: 4rem 2rem;
+  }
+}/* Base Mobile Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #111;
+}
+
+header {
+  background: #111827;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+header p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.image-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.signup-section,
+.services-section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form input,
+form button {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: #111827;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #1f2937;
+}
+
+.services-section .service {
+  margin-top: 2rem;
+}
+
+.service img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+  </style>
+
+  
+</head>
+<body>
+  HTML CODE 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elite basketball and strength training for athletes. Sign up to receive weekly workouts from Sideline 88 Ball Inc." />
+  <title>Sideline 88 Ball Inc</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Sideline 88 Ball Inc</h1>
+    <p>Elite Basketball & Strength Training for Athletes</p>
+  </header>
+
+  <section class="image-banner">
+    <img src="images/athlete-banner.jpg" alt="Basketball athlete in training" />
+  </section>
+
+  <section class="signup-section">
+    <h2>Sign Up for Training</h2>
+    <form id="signup-form">
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <button type="submit">Join Now</button>
+    </form>
+  </section>
+
+  <section class="services-section">
+    <h2>Our Training Services</h2>
+
+    <div class="service">
+      <img src="images/workout1.jpg" alt="Customized Basketball Workouts" />
+      <h3>Customized Workouts</h3>
+      <p>Skill-based training plans designed for your level and position.</p>
+    </div>
+
+    <div class="service">
+      <img src="images/strength1.jpg" alt="Weekly Strength Training" />
+      <h3>Strength Programs</h3>
+      <p>Weekly strength routines to increase explosiveness and power.</p>
+    </div>
+
+    <div class="service">
+      <img src="images/weights-room.jpg" alt="Weight Room Coaching" />
+      <h3>Weight Room Coaching</h3>
+      <p>Guided strength sessions focused on athletic development and injury prevention.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sideline 88 Ball Inc. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+  <script>
+    java script code
+// Initialize EmailJS
+(function() {
+  emailjs.init("dP7FZpwMZ6gliapcQ"); // Replace with your actual public key
+})();
+
+document.getElementById("signup-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.send("_service_z7co5gf", "template_pepz1ly", {
+    fullname: e.target.fullname.value,
+    email: e.target.email.value
+  })
+  .then(function() {
+    alert("Thanks for signing up! We'll be in touch soon.");
+    e.target.reset();
+  }, function(error) {
+    alert("Oops! Something went wrong. Try again later.");
+    console.log(error);
+  });
+});
+
+  </script>
+</body>
+</html>
